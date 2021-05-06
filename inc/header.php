@@ -18,20 +18,15 @@
          <ul>
 			<li class="current"><a href="index.php">Home</a></li>
 			<li><a href="products.php">Produits</a></li>
-            <!-- //? Affichage conditionnel du bouton se connecter/ page de profil -->
             <?php
-                    //? Vérification des variables des sessions : si elle n'existent pas, alors afficher un bouton se connecter
-                    if (empty($_SESSION)) {
+                    if (empty($_SESSION['id'])) {
                     ?>
-                        <a class="nav-link" href="login.php">Se connecter</a>
+                        <a class="nav-link" href="login.php">Sign in</a>
                     <?php
-                        //? Si elles existent, afficher un bouton qui redirige vers la page de profil et un bouton de déconnexion
                     } else {
                     ?>
-                        <!-- //? J'affiche le nom de l'utilisateur connecté qui est stocké en token de session dans le bouton -->
                         <a class="nav-link" href="profile.php"><?php echo $_SESSION['username']; ?></a>
-                        <!-- //? Pour me déconnecter j'envoie une requête GET avec l'info logout qui permet de se déconnecter de n'importe où. -->
-                        <a class="nav-link" href="?logout">Se déconnecter</a>
+                        <a class="nav-link" href="?logout">Sign in</a>
                     <?php
                     }
                     ?>
